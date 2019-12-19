@@ -9,9 +9,9 @@ const toolbar = (props) => {
 
     return (
         <header className={styles.Toolbar}>
-            <div>MENU</div>
+            <div className={styles.MenuButton} onClick={props.showSideDrawer}>MENU</div>
             <Logo height="80%" />
-            <nav>
+            <nav className={styles.DesktopOnly}>
                 <NavigationItems />
             </nav>
 
