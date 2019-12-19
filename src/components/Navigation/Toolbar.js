@@ -9,7 +9,11 @@ const toolbar = (props) => {
 
     return (
         <header className={styles.Toolbar}>
-            <div className={styles.MenuButton} onClick={props.showSideDrawer}>MENU</div>
+            <div className={styles.DrawerToggle} onClick={props.showSideDrawer}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <Logo height="80%" />
             <nav className={styles.DesktopOnly}>
                 <NavigationItems />
@@ -22,4 +26,4 @@ const toolbar = (props) => {
 
 };
 
-export default toolbar;
+export default React.memo(toolbar);
