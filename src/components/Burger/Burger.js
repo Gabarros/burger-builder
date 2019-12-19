@@ -7,7 +7,11 @@ import BurgerIngredient from './BurgerIngredient';
 const burger = (props)=>{
 
     return(
-        <div>
+        <div className={styles.Burger}>
+            <BurgerIngredient type="bread-top" />
+            <BurgerIngredient type="meat" />
+            <BurgerIngredient type="bacon" />
+            <BurgerIngredient type="bread-bottom" />
 
         </div>
     )
