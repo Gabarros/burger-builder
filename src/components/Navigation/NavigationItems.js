@@ -9,13 +9,12 @@ const navigationItems = () => {
     return (
         <ul className={styles.NavigationItems}>
             <NavigationItem
-                link="/"
-                active={true}>
+                link="/">
                 Burger Builder
             </NavigationItem>
             <NavigationItem
-                link="/">
-                Checkout
+                link="/orders">
+                Orders
             </NavigationItem>
         </ul>
 
