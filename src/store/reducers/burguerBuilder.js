@@ -1,14 +1,9 @@
-import * as actionTypes from './actions';
-import { act } from 'react-dom/test-utils';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    ingredients: {
-        salad: 1,
-        bacon: 0,
-        cheese: 0,
-        meat: 1
-    },
-    totalPrice: 4
+    ingredients: null,
+    totalPrice: 4,
+    error: false
 
 };
 
