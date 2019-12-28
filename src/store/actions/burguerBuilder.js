@@ -22,9 +22,9 @@ export const setIngredients = (ingredients) =>{
     }
 };
 
-export const fecthIngredientsFailer = () =>{
+export const fecthIngredientsFailed = () =>{
     return{
-        type: actionTypes.FETCH_INGREDIENTS_FAILER
+        type: actionTypes.FETCH_INGREDIENTS_FAILED
     };
 }
 
@@ -32,10 +32,10 @@ export const fecthIngredientsFailer = () =>{
 export const initIngredients = () =>{
     return dispatch =>{
         axios.get('https://burger-builder-35e70.firebaseio.com/ingredients.json').then(response => {
-           dispatch(setIngredients(response.data))
+           dispatch(setIngredients(response.data));
         }).catch(err=>{
-            dispatch(fecthIngredientsFailer());
-        })
+            dispatch(fecthIngredientsFailed());
+        });
 
 
     };
