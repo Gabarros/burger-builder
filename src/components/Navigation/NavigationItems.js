@@ -4,7 +4,7 @@ import NavigationItem from './NavigationItem';
 
 import styles from './NavigationItems.module.css';
 
-const navigationItems = () => {
+const navigationItems = (props) => {
 
     return (
         <ul className={styles.NavigationItems}>
@@ -16,10 +16,16 @@ const navigationItems = () => {
                 link="/orders">
                 Orders
             </NavigationItem>
-            <NavigationItem 
+            { !props.isAuthenticated  
+            ? <NavigationItem 
             link="/auth">
                 Authenticate
             </NavigationItem>
+            : <NavigationItem 
+            link="/logout">
+                Logout
+            </NavigationItem>
+            }
         </ul>
 
     );
