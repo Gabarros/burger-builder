@@ -15,7 +15,7 @@ describe('<BurgerBuilder/>', () => {
 
     beforeEach(() => {
 
-        wrapper = shallow(<BurgerBuilder  onInitIngredients={() => {}} />);
+        wrapper = shallow(<BurgerBuilder onInitIngredients={() => {}} />);
 
     })
     it('should render <BuildControls /> when receving ingredients', () => {
