@@ -10,7 +10,7 @@ import Input from '../../components/UI/Input';
 
 import withErrorHandler from '../../components/hoc/withErrorHandler';
 import * as actions from '../../store/actions/index';
-import BurgerBuilder from '../BurgerBuilder';
+import { updateObject, checkValidity } from '../../shared/utility';
 
 class ContactData extends Component {
 
@@ -122,36 +122,17 @@ class ContactData extends Component {
 
     }
 
-    checkValidation(value, rules) {
-
-        let isValid = true;
-
-        if (rules.required) {
-            isValid = value.trim() !== '' && isValid;
-        }
-
-        if (rules.minLength) {
-            isValid = value.length >= rules.minLength && isValid;
-        }
-
-        if (rules.maxLenght) {
-            isValid = value.length <= rules.minLength && isValid;
-
-        }
-        return isValid;
-    }
-
     inputChangeHandler = (event, inputIdentifier) => {
-        const updatedForm = { ...this.state.orderForm };
+    
 
-        const updatedFormElement = { ...updatedForm[inputIdentifier] };
-
-        updatedFormElement.value = event.target.value;
-        updatedFormElement.valid = this.checkValidation(updatedFormElement.value, updatedFormElement.validation);
-
-        updatedFormElement.touched = true;
-        updatedForm[inputIdentifier] = updatedFormElement;
-
+        const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
+            value: event.target.value,
+            valid: checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation),
+            touched: true
+        });
+        const updatedForm = updateObject(this.state.orderForm, {
+            [inputIdentifier]: updatedFormElement
+        });
         let formIsValid = true;
         for (let inputIdentifier in updatedForm) {
             formIsValid = updatedForm[inputIdentifier].valid && formIsValid;
